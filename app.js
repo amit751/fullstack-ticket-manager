@@ -2,9 +2,13 @@ const express = require("express");
 const Ticket = require("./models/ticket");
 const app = express();
 app.use(express.json());
-app.use(express.static("client/build"));
+// app.use(express.static("client/build"));
+app.use(express.static("client/public"));
 
 module.exports = app;
+app.get("/", (req, res) => {
+  return res.sendFile("index.html");
+});
 
 app.get("/api/tickets", (req, res) => {
   const { searchText } = req.query;
