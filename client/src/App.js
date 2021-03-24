@@ -26,6 +26,7 @@ function App() {
     axios
       .get(`/api/tickets`)
       .then(({ data }) => {
+        console.log(data);
         setTickets(data);
       })
       .catch((e) => {
@@ -39,14 +40,14 @@ function App() {
   };
 
   return (
-    <>
+    <div className="App">
       <Search onChange={onChange} />
       <div>
         {tickets.map((ticket) => {
-          return <Ticket ticket={ticket} />;
+          return <Ticket className="ticket" ticket={ticket} />;
         })}
       </div>
-    </>
+    </div>
   );
 }
 

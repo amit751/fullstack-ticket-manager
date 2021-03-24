@@ -1,23 +1,40 @@
 export default function Ticket({ ticket }) {
-  return (
-    <div className="ticket">
-      <h1>{ticket.title}</h1>
-      <p>{ticket.content}</p>
-      <div className="details">
-        <p>
-          by {ticket.userEmail} | {ticket.creationTime}
-        </p>
+  if (ticket.labels) {
+    return (
+      <div className="ticket">
+        <h1>{ticket.title}</h1>
+        <p>{ticket.content}</p>
+        <div className="details">
+          <p>
+            by {ticket.userEmail} | {ticket.creationTime}
+          </p>
+        </div>
+        <div className="done">
+          {/* <p>done: {ticket.done.toString()}</p> */}
+        </div>
+        <div className="labels-container">
+          {ticket.labels.map((lable) => {
+            return <button className={`label ${lable}`}> {lable} </button>;
+          })}
+        </div>
       </div>
-      <div className="done">
-        <p>done: {ticket.done}</p>
+    );
+  } else {
+    return (
+      <div className="ticket">
+        <h1>{ticket.title}</h1>
+        <p>{ticket.content}</p>
+        <div className="details">
+          <p>
+            by {ticket.userEmail} | {ticket.creationTime}
+          </p>
+        </div>
+        <div className="done">
+          {/* <p>done: {ticket.done.toString()}</p> */}
+        </div>
       </div>
-      <div className="labels-container">
-        {ticket.labels.map((lable) => {
-          return <button className={`lable ${lable}`}> {lable} </button>;
-        })}
-      </div>
-    </div>
-  );
+    );
+  }
 }
 // {
 //     "title": "Need a Little Help with Your Site? Hire a Corvid Web Developer",
