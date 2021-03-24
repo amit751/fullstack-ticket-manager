@@ -2,6 +2,8 @@ const express = require("express");
 const Ticket = require("./models/ticket");
 const app = express();
 app.use(express.json());
+const cors = require("cors");
+// app.use(cors());
 // app.use(express.static("client/build"));
 app.use(express.static("client/public"));
 
@@ -11,6 +13,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/tickets", (req, res) => {
+  console.log("in get");
   const { searchText } = req.query;
   Ticket.find({})
     .then((result) => {
@@ -20,6 +23,7 @@ app.get("/api/tickets", (req, res) => {
             ticket.title.toLowerCase().search(searchText.toLowerCase()) !== -1
           );
         });
+
         return res.json(filteredTickets);
       } else {
         return res.json(result);
@@ -59,4 +63,8 @@ app.patch("/api/tickets/:id/undone", (req, res) => {
 app.use((req, res, next) => {
   console.log(req.path);
   return res.send(req.path);
+});
+app.use((err, req, res, next) => {
+  console.log(err);
+  return res.send(err);
 });
