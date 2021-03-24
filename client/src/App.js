@@ -10,6 +10,8 @@ function App() {
   //await axios.get(`/api/tickets`)
   const [counter, setCounter] = useState(0);
   const [tickets, setTickets] = useState([]);
+  const [startIndex, setStartIndex] = useState(0);
+  const [lastIndex, setLastIndex] = useState(6);
   useEffect(() => {
     console.log("didupdate");
     let newCounter = 0;
@@ -54,23 +56,57 @@ function App() {
     });
     setTickets(newTickets);
   };
+  const nextPage = () => {
+    if (startIndex < tickets.length - 6) {
+      setStartIndex(startIndex + 6);
+      setLastIndex(lastIndex + 6);
+    }
+  };
+  const prevPage = () => {
+    if (startIndex >= 6) {
+      setStartIndex(startIndex - 6);
+      setLastIndex(lastIndex - 6);
+    }
+  };
+
+  // const ticketsElements = tickets.map((ticket, i) => {
+  //   if (ticket.hide) {
+  //     return;
+  //   } else {
+  //     return <Ticket key={i} ticket={ticket} onClick={onClick} />;
+  //   }
+  // });
+  const ticketsElements = tickets
+    .filter((ticket) => {
+      return !ticket.hide;
+    })
+    .map((ticket, i) => {
+      return <Ticket key={i} ticket={ticket} onClick={onClick} />;
+    });
 
   return (
     <div className="App">
-      <Search onChange={onChange} />
-      <p id="hideTicketsCounter">{counter}</p>
-      <button id="restoreHideTickets" onClick={restore}>
-        restoreHideTickets
-      </button>
+      <div className="header">
+        <Search onChange={onChange} />
+        <p>
+          {ticketsElements.length} are showen
+          <span id="hideTicketsCounter">{counter}</span>are hidden
+        </p>
+        <button id="restoreHideTickets" onClick={restore}>
+          restoreHideTickets
+        </button>
+      </div>
+      <div id="nav-buttons">
+        <button onClick={nextPage} id="next">
+          next
+        </button>
+        <button hidden onClick={prevPage} id="prev">
+          prev
+        </button>
+      </div>
 
-      <div>
-        {tickets.map((ticket, i) => {
-          if (ticket.hide) {
-            return;
-          } else {
-            return <Ticket key={i} ticket={ticket} onClick={onClick} />;
-          }
-        })}
+      <div className="tickets-container">
+        {ticketsElements.slice(startIndex, lastIndex)}
       </div>
     </div>
   );
