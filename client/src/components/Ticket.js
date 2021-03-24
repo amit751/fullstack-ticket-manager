@@ -21,8 +21,13 @@ export default function Ticket({ ticket, onClick }) {
           {/* <p>done: {ticket.done.toString()}</p> */}
         </div>
         <div className="labels-container">
-          {ticket.labels.map((lable) => {
-            return <button className={`label ${lable}`}> {lable} </button>;
+          {ticket.labels.map((lable, i) => {
+            return (
+              <button key={i} className={`label ${lable}`}>
+                {" "}
+                {lable}{" "}
+              </button>
+            );
           })}
         </div>
       </div>
