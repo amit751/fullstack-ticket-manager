@@ -3,6 +3,7 @@ import "./App.css";
 import Ticket from "./components/Ticket";
 import Search from "./components/Search";
 import { useState, useEffect } from "react";
+import { set } from "mongoose";
 const axios = require("axios");
 
 const test = [
@@ -19,8 +20,18 @@ const test = [
 
 function App() {
   //await axios.get(`/api/tickets`)
-
+  const [counter, setCounter] = useState(0);
   const [tickets, setTickets] = useState([]);
+  useEffect(() => {
+    console.log("didupdate");
+    let newCounter = 0;
+    tickets.forEach((ticket) => {
+      if (ticket.hide) ++newCounter;
+    });
+
+    console.log(newCounter);
+    setCounter(newCounter);
+  });
 
   useEffect(() => {
     axios
@@ -38,13 +49,39 @@ function App() {
     const { data } = await axios.get(`/api/tickets?searchText=${searchText}`);
     setTickets(data);
   };
+  const onClick = (title) => {
+    const newTickets = tickets.slice();
+    const ticketToHide = newTickets.find((ticket) => {
+      return ticket.title === title;
+    });
+    console.log(ticketToHide);
+    ticketToHide.hide = true;
+    console.log(newTickets);
+    setTickets(newTickets);
+  };
+  const restore = () => {
+    const newTickets = tickets.slice();
+    newTickets.forEach((ticket) => {
+      ticket.hide = false;
+    });
+    setTickets(newTickets);
+  };
 
   return (
     <div className="App">
       <Search onChange={onChange} />
+      <p id="hideTicketsCounter">{counter}</p>
+      <button id="restoreHideTickets" onClick={restore}>
+        restoreHideTickets
+      </button>
+
       <div>
         {tickets.map((ticket) => {
-          return <Ticket className="ticket" ticket={ticket} />;
+          if (ticket.hide) {
+            return;
+          } else {
+            return <Ticket ticket={ticket} onClick={onClick} />;
+          }
         })}
       </div>
     </div>

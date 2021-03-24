@@ -1,7 +1,15 @@
-export default function Ticket({ ticket }) {
+export default function Ticket({ ticket, onClick }) {
   if (ticket.labels) {
     return (
       <div className="ticket">
+        <button
+          className="hideTicketButton"
+          onClick={() => {
+            onClick(ticket.title);
+          }}
+        >
+          hide
+        </button>
         <h1>{ticket.title}</h1>
         <p>{ticket.content}</p>
         <div className="details">
@@ -22,6 +30,14 @@ export default function Ticket({ ticket }) {
   } else {
     return (
       <div className="ticket">
+        <button
+          className="hideTicketButton"
+          onClick={() => {
+            onClick(ticket.title);
+          }}
+        >
+          hide
+        </button>
         <h1>{ticket.title}</h1>
         <p>{ticket.content}</p>
         <div className="details">
