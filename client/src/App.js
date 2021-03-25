@@ -4,10 +4,12 @@ import Ticket from "./components/Ticket";
 import Search from "./components/Search";
 import { useState, useEffect } from "react";
 import { set } from "mongoose";
+import DisplayTicket from "./components/DisplayTicket";
 const axios = require("axios");
 
 function App() {
   //await axios.get(`/api/tickets`)
+  const [ticketToDisplay, setticketToDisplay] = useState("");
   const [counter, setCounter] = useState(0);
   const [tickets, setTickets] = useState([]);
   const [startIndex, setStartIndex] = useState(0);
@@ -68,7 +70,20 @@ function App() {
       setLastIndex(lastIndex - 6);
     }
   };
-
+  const exitDisplay = () => {
+    setticketToDisplay("");
+  };
+  const displayTicket = (ticket) => {
+    console.log("here");
+    if (ticket !== "") {
+      const element = (
+        <div id="displayed-ticket">
+          <DisplayTicket ticket={ticket} exitDisplay={exitDisplay} />
+        </div>
+      );
+      setticketToDisplay(element);
+    }
+  };
   // const ticketsElements = tickets.map((ticket, i) => {
   //   if (ticket.hide) {
   //     return;
@@ -81,13 +96,21 @@ function App() {
       return !ticket.hide;
     })
     .map((ticket, i) => {
-      return <Ticket key={i} ticket={ticket} onClick={onClick} />;
+      return (
+        <Ticket
+          key={i}
+          ticket={ticket}
+          onClick={onClick}
+          displayTicket={displayTicket}
+        />
+      );
     });
 
   return (
     <div className="App">
       <div className="header">
         <Search onChange={onChange} />
+        {ticketToDisplay}
         <p>
           {ticketsElements.length} are showen
           <span id="hideTicketsCounter">{counter}</span>are hidden

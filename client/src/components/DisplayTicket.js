@@ -1,22 +1,12 @@
-export default function Ticket({ ticket, onClick, displayTicket }) {
+export default function DisplayTicket({ ticket, displayTicket, exitDisplay }) {
   if (ticket.labels) {
     return (
-      <div
-        className="ticket"
-        onClick={() => {
-          displayTicket(ticket);
-        }}
-      >
-        <button
-          className="hideTicketButton"
-          onClick={() => {
-            onClick(ticket.title);
-          }}
-        >
-          hide
+      <div className="display-ticket-container">
+        <button className="exitDisplay" onClick={exitDisplay}>
+          close
         </button>
         <h1>{ticket.title}</h1>
-        {/* <p>{ticket.content}</p> */}
+        <p>{ticket.content}</p>
         <div className="details">
           <p>
             by {ticket.userEmail} |{" "}
@@ -47,22 +37,9 @@ export default function Ticket({ ticket, onClick, displayTicket }) {
     );
   } else {
     return (
-      <div
-        className="ticket"
-        onClick={() => {
-          displayTicket(ticket);
-        }}
-      >
-        <button
-          className="hideTicketButton"
-          onClick={() => {
-            onClick(ticket.title);
-          }}
-        >
-          hide
-        </button>
+      <div className="display-ticket-container">
         <h1>{ticket.title}</h1>
-        {/* <p>{ticket.content}</p> */}
+        <p>{ticket.content}</p>
         <div className="details">
           <p>
             by {ticket.userEmail} | {ticket.creationTime}
