@@ -1,8 +1,8 @@
 export default function Search({ onChange }) {
   return (
     <div className="Search">
-      filter
       <input
+        placeholder="filter"
         id="searchInput"
         onChange={(e) => {
           onChange(e.target.value);

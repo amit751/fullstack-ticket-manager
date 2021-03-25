@@ -7,14 +7,23 @@ export default function Ticket({ ticket, onClick, displayTicket }) {
           displayTicket(e, ticket);
         }}
       >
-        <button
+        <img
+          width="30"
+          height="30"
+          src="./image/HI.png"
+          className="hideTicketButton"
+          onClick={() => {
+            onClick(ticket.title);
+          }}
+        />
+        {/* <button
           className="hideTicketButton"
           onClick={() => {
             onClick(ticket.title);
           }}
         >
           hide
-        </button>
+        </button> */}
         <h1>{ticket.title}</h1>
         {/* <p>{ticket.content}</p> */}
         <div className="details">
@@ -53,14 +62,22 @@ export default function Ticket({ ticket, onClick, displayTicket }) {
           displayTicket(ticket);
         }}
       >
-        <button
+        {/* <button
           className="hideTicketButton"
           onClick={() => {
             onClick(ticket.title);
           }}
-        >
-          hide
-        </button>
+        /> */}
+        <img
+          width="10"
+          height="10"
+          src="./image/HI.png"
+          className="hideTicketButton"
+          onClick={() => {
+            onClick(ticket.title);
+          }}
+        />
+
         <h1>{ticket.title}</h1>
         {/* <p>{ticket.content}</p> */}
         <div className="details">

@@ -77,7 +77,7 @@ function App() {
   };
   const displayTicket = (e, ticket) => {
     console.log(e.target.tagName);
-    if (ticket !== "" && e.target.tagName !== "BUTTON") {
+    if (ticket !== "" && e.target.tagName !== "IMG") {
       const element = (
         <div id="displayed-ticket">
           <DisplayTicket ticket={ticket} exitDisplay={exitDisplay} />
@@ -110,12 +110,12 @@ function App() {
 
   return (
     <div className="App">
-      <h1>ticket Manager</h1>
       {ticketToDisplay}
       <div className="header">
+        <h1>ticket Manager</h1>
         <Search onChange={onChange} />
         <p>
-          {ticketsElements.length} are showen
+          {ticketsElements.length} are showen{" "}
           <span id="hideTicketsCounter">{counter}</span> are hidden
         </p>
         <button id="restoreHideTickets" onClick={restore}>

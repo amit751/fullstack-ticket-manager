@@ -32,6 +32,14 @@
       -ms-flex-align: start;
           align-items: flex-start;
   text-align: center;
+  z-index: 1;
+}
+
+.label {
+  margin: 0 0.6rem;
+  padding: 0.4em;
+  border: none;
+  color: white;
 }
 
 .tickets-container {
@@ -57,23 +65,43 @@
 
 .ticket {
   width: 30rem;
-  height: 20rem;
+  height: 15rem;
   margin: 1em auto;
-  background-color: #b0d6a4;
+  background-color: #63ace5;
   border-radius: 3%;
   padding: 1em;
+  position: relative;
 }
 
 .ticket h1 {
-  color: #010c16;
+  color: #011f4b;
+  font-size: 1.6rem;
+}
+
+.ticket p {
+  margin: 2rem 0;
+  font-weight: 2rem;
+  color: #011f4b;
 }
 
 #nav-buttons {
   display: block;
 }
 
+#nav-buttons button {
+  margin: 2rem;
+}
+
+#restoreHideTickets {
+  margin: 1rem;
+}
+
 .header {
   padding-top: 4rem;
+}
+
+.header h1 {
+  margin-bottom: 3rem;
 }
 
 .header input {
@@ -106,25 +134,76 @@
   height: -moz-fit-content;
   height: fit-content;
   margin: 1em auto;
-  background-color: #b0d6a4;
+  margin: 2rem auto;
+  background-color: #63ace5;
   border-radius: 2%;
+  position: relative;
   margin-top: 2rem;
 }
 
 .display-ticket-container * {
-  padding: 0.5rem;
+  padding: 1rem;
 }
 
 .display-ticket-container button {
-  margin: 1rem;
+  margin-top: 15rem;
+}
+
+.display-ticket-container .details {
+  font-weight: bold;
+  color: #011f4b;
 }
 
 .display-ticket-container .ticket-content {
+  font-weight: 2rem;
+  color: #011f4b;
   max-width: 90rem;
   margin: 0, 2rem;
 }
 
 .display-ticket-container h1 {
-  color: #010c16;
+  color: #011f4b;
+  font-size: 1.6rem;
+}
+
+.hideTicketButton {
+  right: 1rem;
+  bottom: 1rem;
+}
+
+.Corvid {
+  background-color: #f6cd61;
+}
+
+.Guidelines {
+  background-color: #fe8a71;
+}
+
+.Api {
+  background-color: #ee4035;
+}
+
+.Collapse {
+  background-color: #251e3e;
+}
+
+.Expand {
+  background-color: #0057e7;
+}
+
+.Login {
+  background-color: #ee4035;
+}
+
+.Problem {
+  background-color: #adcbe3;
+}
+
+.Tutorial {
+  background-color: #7bc043;
+}
+
+.View.Count {
+  background-color: #651e3e;
 }
 /*# sourceMappingURL=App.css.map */

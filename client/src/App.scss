@@ -19,7 +19,14 @@
   align-content: center;
   align-items: flex-start;
   text-align: center;
+  z-index: 1;
   // margin-top: 2rem;
+}
+.label {
+  margin: 0 0.6rem;
+  padding: 0.4em;
+  border: none;
+  color: white;
 }
 
 .tickets-container {
@@ -35,23 +42,40 @@
 
 .ticket {
   h1 {
-    color: rgb(1, 12, 22);
+    color: #011f4b;
+    font-size: 1.6rem;
+  }
+  p {
+    margin: 2rem 0;
+    font-weight: 2rem;
+    color: #011f4b;
   }
   width: 30rem;
-  height: 20rem;
+  height: 15rem;
   margin: 1em auto;
   // margin: 2rem auto;
-  background-color: rgb(176, 214, 164);
-  // border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #63ace5;
+
   border-radius: 3%;
 
   padding: 1em;
+  position: relative;
 }
 #nav-buttons {
   display: block;
+  button {
+    margin: 2rem;
+  }
+}
+
+#restoreHideTickets {
+  margin: 1rem;
 }
 
 .header {
+  h1 {
+    margin-bottom: 3rem;
+  }
   padding-top: 4rem;
   input {
     width: 26rem;
@@ -68,30 +92,70 @@
 
 .display-ticket-container {
   * {
-    // max-width: 80rem;
-    padding: 0.5rem;
+    //max-width: 100rem;
+    padding: 1rem;
   }
   button {
-    margin: 1rem;
+    margin-top: 15rem;
+  }
+  .details {
+    font-weight: bold;
+    color: #011f4b;
   }
   .ticket-content {
+    font-weight: 2rem;
+    color: #011f4b;
     max-width: 90rem;
     margin: 0, 2rem;
   }
   order: 0;
   flex: 0 1 auto;
   align-self: center;
-  h1 {
-    color: rgb(1, 12, 22);
-  }
+
   width: fit-content;
   height: fit-content;
   margin: 1em auto;
-  // margin: 2rem auto;
-  background-color: rgb(176, 214, 164);
+  margin: 2rem auto; //////////
+  background-color: #63ace5;
   // border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2%;
+  position: relative;
 
   // padding: 5rem;
   margin-top: 2rem;
+  h1 {
+    color: #011f4b;
+    font-size: 1.6rem;
+  }
+}
+.hideTicketButton {
+  right: 1rem;
+  bottom: 1rem;
+}
+.Corvid {
+  background-color: #f6cd61;
+}
+.Guidelines {
+  background-color: #fe8a71;
+}
+.Api {
+  background-color: #ee4035;
+}
+.Collapse {
+  background-color: #251e3e;
+}
+.Expand {
+  background-color: #0057e7;
+}
+.Login {
+  background-color: #ee4035;
+}
+.Problem {
+  background-color: #adcbe3;
+}
+.Tutorial {
+  background-color: #7bc043;
+}
+.View.Count {
+  background-color: #651e3e;
 }
