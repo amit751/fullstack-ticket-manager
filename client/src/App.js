@@ -100,7 +100,7 @@ function App() {
         <button onClick={nextPage} id="next">
           next
         </button>
-        <button hidden onClick={prevPage} id="prev">
+        <button onClick={prevPage} id="prev">
           prev
         </button>
       </div>

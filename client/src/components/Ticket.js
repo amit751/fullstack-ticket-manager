@@ -14,7 +14,15 @@ export default function Ticket({ ticket, onClick }) {
         <p>{ticket.content}</p>
         <div className="details">
           <p>
-            by {ticket.userEmail} | {ticket.creationTime}
+            by {ticket.userEmail} |{" "}
+            {ticket.creationTime
+              .toString()
+              .replace(".", "-")
+              .replace(".", "-")
+              .replace(",", " ")
+              .replace("Z", " ")
+              .replace("T", " ")
+              .slice(0, -5)}
           </p>
         </div>
         <div className="done">
