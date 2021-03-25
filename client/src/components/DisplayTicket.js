@@ -6,7 +6,7 @@ export default function DisplayTicket({ ticket, displayTicket, exitDisplay }) {
           close
         </button>
         <h1>{ticket.title}</h1>
-        <p>{ticket.content}</p>
+        <p className="ticket-content">{ticket.content}</p>
         <div className="details">
           <p>
             by {ticket.userEmail} |{" "}
@@ -39,7 +39,7 @@ export default function DisplayTicket({ ticket, displayTicket, exitDisplay }) {
     return (
       <div className="display-ticket-container">
         <h1>{ticket.title}</h1>
-        <p>{ticket.content}</p>
+        <p className="ticket-content">{ticket.content}</p>
         <div className="details">
           <p>
             by {ticket.userEmail} | {ticket.creationTime}

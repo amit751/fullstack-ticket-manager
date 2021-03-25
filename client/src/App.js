@@ -5,6 +5,7 @@ import Search from "./components/Search";
 import { useState, useEffect } from "react";
 import { set } from "mongoose";
 import DisplayTicket from "./components/DisplayTicket";
+import e from "cors";
 const axios = require("axios");
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
   const [lastIndex, setLastIndex] = useState(6);
   useEffect(() => {
     console.log("didupdate");
+    console.log(tickets);
     let newCounter = 0;
     tickets.forEach((ticket) => {
       if (ticket.hide) ++newCounter;
@@ -73,9 +75,9 @@ function App() {
   const exitDisplay = () => {
     setticketToDisplay("");
   };
-  const displayTicket = (ticket) => {
-    console.log("here");
-    if (ticket !== "") {
+  const displayTicket = (e, ticket) => {
+    console.log(e.target.tagName);
+    if (ticket !== "" && e.target.tagName !== "BUTTON") {
       const element = (
         <div id="displayed-ticket">
           <DisplayTicket ticket={ticket} exitDisplay={exitDisplay} />
@@ -108,17 +110,19 @@ function App() {
 
   return (
     <div className="App">
+      <h1>ticket Manager</h1>
+      {ticketToDisplay}
       <div className="header">
         <Search onChange={onChange} />
-        {ticketToDisplay}
         <p>
           {ticketsElements.length} are showen
-          <span id="hideTicketsCounter">{counter}</span>are hidden
+          <span id="hideTicketsCounter">{counter}</span> are hidden
         </p>
         <button id="restoreHideTickets" onClick={restore}>
-          restoreHideTickets
+          restore
         </button>
       </div>
+
       <div id="nav-buttons">
         <button onClick={nextPage} id="next">
           next
@@ -127,7 +131,6 @@ function App() {
           prev
         </button>
       </div>
-
       <div className="tickets-container">
         {ticketsElements.slice(startIndex, lastIndex)}
       </div>

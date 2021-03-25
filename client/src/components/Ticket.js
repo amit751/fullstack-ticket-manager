@@ -3,8 +3,8 @@ export default function Ticket({ ticket, onClick, displayTicket }) {
     return (
       <div
         className="ticket"
-        onClick={() => {
-          displayTicket(ticket);
+        onClick={(e) => {
+          displayTicket(e, ticket);
         }}
       >
         <button
