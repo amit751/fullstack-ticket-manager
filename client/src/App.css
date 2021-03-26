@@ -3,16 +3,20 @@
   margin: 0 0;
 }
 
+html {
+  background-color: aliceblue;
+}
+
 .App {
+  background-color: aliceblue;
   text-align: center;
 }
 
 #displayed-ticket {
-  color: #110c0b;
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(245, 255, 248, 0.856);
+  background-color: aliceblue;
   padding: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -33,6 +37,13 @@
           align-items: flex-start;
   text-align: center;
   z-index: 1;
+}
+
+#displayed-ticket .exitDisplay {
+  fill: #f5004e;
+  position: absolute;
+  left: 0.4rem;
+  top: 0.4rem;
 }
 
 .label {
@@ -63,6 +74,13 @@
   min-width: 90%;
 }
 
+#shown {
+  color: #ce190c;
+  font-size: x-large;
+  font-weight: bolder;
+  margin: 2rem;
+}
+
 .ticket {
   width: 30rem;
   height: 15rem;
@@ -85,36 +103,75 @@
 }
 
 #nav-buttons {
-  display: block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
-#nav-buttons button {
-  margin: 2rem;
+#nav-buttons #prev {
+  margin: 1rem;
+  fill: #050530;
+}
+
+#nav-buttons #next {
+  margin: 1rem;
+  fill: #0f063f;
+}
+
+#nav-buttons #prev :hover {
+  margin: 1rem;
+  fill: #ce190c;
+}
+
+#nav-buttons #next :hover {
+  margin: 1rem;
+  fill: #ce190c;
 }
 
 #restoreHideTickets {
   margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #f35b50;
+  background-color: #201858;
+  border-radius: 1.5rem;
+  padding: 0.6rem;
+}
+
+.res-icon {
+  margin-right: 0.1rem;
+}
+
+#res-text {
+  font-weight: bold;
 }
 
 .header {
-  padding-top: 4rem;
+  padding-top: 0.4rem;
 }
 
 .header h1 {
   margin-bottom: 3rem;
+  color: #301a19;
 }
 
 .header input {
+  border-radius: 1rem;
   width: 26rem;
   height: 3rem;
 }
 
-#restoreHideTickets {
-  font-size: larger;
-  font-weight: bolder;
-  color: #3e3eb6;
-  background-color: white;
-  border: none;
+.header input:focus {
+  outline: none;
 }
 
 .display-ticket-container {
@@ -141,34 +198,64 @@
   margin-top: 2rem;
 }
 
-.display-ticket-container * {
+.display-ticket-container .label {
+  margin-bottom: 0;
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+.display-ticket-container .labels-container {
+  margin-bottom: 0;
+  margin-top: 1rem;
   padding: 1rem;
 }
 
-.display-ticket-container button {
-  margin-top: 15rem;
-}
-
 .display-ticket-container .details {
-  font-weight: bold;
+  padding: 1rem;
   color: #011f4b;
 }
 
 .display-ticket-container .ticket-content {
+  max-height: 48vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow-y: scroll;
   font-weight: 2rem;
-  color: #011f4b;
+  color: #06152c;
   max-width: 90rem;
   margin: 0, 2rem;
+  font-size: 1.5rem;
+  padding: 0 5rem;
+}
+
+.display-ticket-container .ticket-content::-webkit-scrollbar {
+  width: 19px;
+  height: 19px;
+}
+
+.display-ticket-container .ticket-content::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left bottom, left top, from(#f51818), color-stop(0%, #f5004e));
+  background: linear-gradient(0deg, #f51818 0%, #f5004e 0%);
+  border-radius: 5px;
+}
+
+.display-ticket-container .ticket-content::-webkit-scrollbar-track {
+  background: #1d0e57;
+  border-radius: 7px;
 }
 
 .display-ticket-container h1 {
-  color: #011f4b;
-  font-size: 1.6rem;
+  color: #f5004e;
+  font-size: 2rem;
+  padding: 2rem 0;
 }
 
-.hideTicketButton {
-  right: 1rem;
+img.hideTicketButton {
+  right: 2rem;
   bottom: 1rem;
+  position: absolute;
+  opacity: 0.3;
 }
 
 .Corvid {

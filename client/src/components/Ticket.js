@@ -16,14 +16,7 @@ export default function Ticket({ ticket, onClick, displayTicket }) {
             onClick(ticket.title);
           }}
         />
-        {/* <button
-          className="hideTicketButton"
-          onClick={() => {
-            onClick(ticket.title);
-          }}
-        >
-          hide
-        </button> */}
+
         <h1>{ticket.title}</h1>
         {/* <p>{ticket.content}</p> */}
         <div className="details">

@@ -2,15 +2,19 @@
   padding: 0 0;
   margin: 0 0;
 }
+html {
+  background-color: aliceblue;
+}
 .App {
+  //background-color: aliceblue;#383239 #330510
+  background-color: aliceblue;
   text-align: center;
 }
 #displayed-ticket {
-  color: rgb(17, 12, 11);
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(245, 255, 248, 0.856);
+  background-color: aliceblue;
   padding: 0;
   display: flex;
   flex-direction: row;
@@ -21,6 +25,13 @@
   text-align: center;
   z-index: 1;
   // margin-top: 2rem;
+
+  .exitDisplay {
+    fill: #f5004e;
+    position: absolute;
+    left: 0.4rem;
+    top: 0.4rem;
+  }
 }
 .label {
   margin: 0 0.6rem;
@@ -38,6 +49,13 @@
   align-items: flex-start;
   // padding: 8rem;
   min-width: 90%;
+}
+#shown {
+  color: #ce190c;
+  font-size: x-large;
+  font-weight: bolder;
+
+  margin: 2rem;
 }
 
 .ticket {
@@ -62,51 +80,106 @@
   position: relative;
 }
 #nav-buttons {
-  display: block;
-  button {
-    margin: 2rem;
+  display: flex;
+  justify-content: space-around;
+  #prev {
+    margin: 1rem;
+    fill: #050530;
+  }
+  #next {
+    margin: 1rem;
+    fill: #0f063f;
+  }
+  #prev :hover {
+    margin: 1rem;
+    fill: #ce190c;
+  }
+  #next :hover {
+    margin: 1rem;
+    fill: #ce190c;
   }
 }
 
 #restoreHideTickets {
   margin: 1rem;
+  // margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #f35b50;
+  background-color: #201858;
+  border-radius: 1.5rem;
+  padding: 0.6rem;
+  // align-self: start;
+}
+.res-icon {
+  margin-right: 0.1rem;
+}
+#res-text {
+  font-weight: bold;
 }
 
 .header {
   h1 {
     margin-bottom: 3rem;
+    color: #301a19;
   }
-  padding-top: 4rem;
+  padding-top: 0.4rem;
+
   input {
+    border-radius: 1rem;
     width: 26rem;
     height: 3rem;
   }
-}
-#restoreHideTickets {
-  font-size: larger;
-  font-weight: bolder;
-  color: rgb(62, 62, 182);
-  background-color: rgb(255, 255, 255);
-  border: none;
+  input:focus {
+    outline: none;
+  }
 }
 
 .display-ticket-container {
   * {
     //max-width: 100rem;
+    // padding: 1rem;
+  }
+  .label {
+    margin-bottom: 0;
+    padding: 1rem;
+    font-size: 0.8rem;
+  }
+  .labels-container {
+    margin-bottom: 0;
+    margin-top: 1rem;
     padding: 1rem;
   }
-  button {
-    margin-top: 15rem;
-  }
+
   .details {
-    font-weight: bold;
+    padding: 1rem;
     color: #011f4b;
   }
+  // overflow-y: scroll;
   .ticket-content {
+    max-height: 48vh;
+    height: fit-content;
+    overflow-y: scroll;
     font-weight: 2rem;
-    color: #011f4b;
+    color: #06152c;
     max-width: 90rem;
     margin: 0, 2rem;
+    font-size: 1.5rem;
+    padding: 0 5rem;
+  }
+  .ticket-content::-webkit-scrollbar {
+    width: 19px;
+    height: 19px;
+  }
+  .ticket-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(0deg, #f51818 0%, #f5004e 0%);
+    border-radius: 5px;
+  }
+
+  .ticket-content::-webkit-scrollbar-track {
+    background: #1d0e57;
+    border-radius: 7px;
   }
   order: 0;
   flex: 0 1 auto;
@@ -124,13 +197,16 @@
   // padding: 5rem;
   margin-top: 2rem;
   h1 {
-    color: #011f4b;
-    font-size: 1.6rem;
+    color: #f5004e;
+    font-size: 2rem;
+    padding: 2rem 0;
   }
 }
-.hideTicketButton {
-  right: 1rem;
+img.hideTicketButton {
+  right: 2rem;
   bottom: 1rem;
+  position: absolute;
+  opacity: 0.3;
 }
 .Corvid {
   background-color: #f6cd61;
