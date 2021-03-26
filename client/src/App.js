@@ -1,11 +1,10 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Ticket from "./components/Ticket";
 import Search from "./components/Search";
 import { useState, useEffect } from "react";
-import { set } from "mongoose";
+
 import DisplayTicket from "./components/DisplayTicket";
-import e from "cors";
+
 const axios = require("axios");
 
 function App() {
