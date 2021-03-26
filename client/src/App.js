@@ -86,13 +86,7 @@ function App() {
       setticketToDisplay(element);
     }
   };
-  // const ticketsElements = tickets.map((ticket, i) => {
-  //   if (ticket.hide) {
-  //     return;
-  //   } else {
-  //     return <Ticket key={i} ticket={ticket} onClick={onClick} />;
-  //   }
-  // });
+
   const ticketsElements = tickets
     .filter((ticket) => {
       return !ticket.hide;

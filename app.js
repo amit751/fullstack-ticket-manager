@@ -13,7 +13,6 @@ app.get("/", (req, res) => {
 });
 
 app.get("/api/tickets", (req, res) => {
-  console.log("in get");
   const { searchText } = req.query;
   Ticket.find({})
     .then((result) => {
@@ -48,7 +47,7 @@ app.patch("/api/tickets/:id/done", (req, res) => {
 });
 app.patch("/api/tickets/:id/undone", (req, res) => {
   const id = req.params.id;
-  console.log(id);
+
   Ticket.findByIdAndUpdate(id, { done: false }, { new: true })
     .then((result) => {
       if (result === null) throw new err("no such id");
