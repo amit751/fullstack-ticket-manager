@@ -1,38 +1,298 @@
+* {
+  padding: 0 0;
+  margin: 0 0;
+}
+
+html {
+  background-color: aliceblue;
+}
+
 .App {
+  background-color: aliceblue;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#displayed-ticket {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(77, 77, 82, 0.582);
+  padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  text-align: center;
+  z-index: 1;
 }
 
-.App-link {
-  color: #61dafb;
+#displayed-ticket .exitDisplay {
+  fill: #f5004e;
+  position: absolute;
+  left: 0.4rem;
+  top: 0.4rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.label {
+  margin: 0 0.6rem;
+  background-color: #091cca;
+  border: none;
+  color: #fafafa;
+  padding: 1rem;
+  font-size: 0.8rem;
 }
+
+.tickets-container {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  min-width: 90%;
+}
+
+#shown {
+  color: #ce190c;
+  font-size: x-large;
+  font-weight: bolder;
+  margin: 2rem;
+}
+
+.ticket {
+  width: 30rem;
+  height: 15rem;
+  margin: 1em auto;
+  background-color: #63ace5;
+  border-radius: 3%;
+  padding: 1em;
+  position: relative;
+}
+
+.ticket h1 {
+  color: #011f4b;
+  font-size: 1.6rem;
+}
+
+.ticket p {
+  margin: 2rem 0;
+  font-weight: 2rem;
+  color: #011f4b;
+}
+
+#nav-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+#nav-buttons #prev {
+  margin: 1rem;
+  fill: #050530;
+}
+
+#nav-buttons #next {
+  margin: 1rem;
+  fill: #0f063f;
+}
+
+#nav-buttons #prev :hover {
+  margin: 1rem;
+  fill: #ce190c;
+}
+
+#nav-buttons #next :hover {
+  margin: 1rem;
+  fill: #ce190c;
+}
+
+#restoreHideTickets {
+  margin: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #f35b50;
+  background-color: #201858;
+  border-radius: 1.5rem;
+  padding: 0.6rem;
+}
+
+.res-icon {
+  margin-right: 0.1rem;
+}
+
+#res-text {
+  font-weight: bold;
+}
+
+.header {
+  padding-top: 0.4rem;
+}
+
+.header h1 {
+  margin-bottom: 3rem;
+  color: #301a19;
+}
+
+.header input {
+  border-radius: 1rem;
+  width: 26rem;
+  height: 3rem;
+}
+
+.header input:focus {
+  outline: none;
+}
+
+.display-ticket-container {
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  margin: 1em auto;
+  margin: 2rem auto;
+  background-color: #63ace5;
+  border-radius: 2%;
+  position: relative;
+  margin-top: 2rem;
+}
+
+.display-ticket-container .label {
+  margin-bottom: 0;
+  padding: 1rem;
+  font-size: 0.8rem;
+}
+
+.display-ticket-container .labels-container {
+  margin-bottom: 0;
+  margin-top: 1rem;
+  padding: 1rem;
+}
+
+.display-ticket-container .details {
+  padding: 1rem;
+  color: #011f4b;
+}
+
+.display-ticket-container .ticket-content {
+  max-height: 48vh;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  overflow-y: scroll;
+  font-weight: 2rem;
+  color: #06152c;
+  max-width: 90rem;
+  margin: 0, 2rem;
+  font-size: 1.5rem;
+  padding: 0 5rem;
+}
+
+.display-ticket-container .ticket-content::-webkit-scrollbar {
+  width: 19px;
+  height: 19px;
+}
+
+.display-ticket-container .ticket-content::-webkit-scrollbar-thumb {
+  background: -webkit-gradient(linear, left bottom, left top, from(#f51818), color-stop(0%, #f5004e));
+  background: linear-gradient(0deg, #f51818 0%, #f5004e 0%);
+  border-radius: 5px;
+}
+
+.display-ticket-container .ticket-content::-webkit-scrollbar-track {
+  background: #1d0e57;
+  border-radius: 7px;
+}
+
+.display-ticket-container h1 {
+  color: #f5004e;
+  font-size: 2rem;
+  padding: 2rem 0;
+}
+
+img.hideTicketButton {
+  right: 2rem;
+  bottom: 1rem;
+  position: absolute;
+  opacity: 0.3;
+}
+
+.Corvid {
+  background-color: #f6cd61;
+}
+
+.Guidelines {
+  background-color: #fe8a71;
+}
+
+.Api {
+  background-color: #ee4035;
+}
+
+.Collapse {
+  background-color: #251e3e;
+}
+
+.Expand {
+  background-color: #0057e7;
+}
+
+.Login {
+  background-color: #ee4035;
+}
+
+.Problem {
+  background-color: #adcbe3;
+}
+
+.Tutorial {
+  background-color: #7bc043;
+}
+
+.View.Count {
+  background-color: #651e3e;
+}
+/*# sourceMappingURL=App.css.map */
