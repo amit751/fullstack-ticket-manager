@@ -14,7 +14,7 @@ html {
   width: 100%;
   height: 100%;
   position: absolute;
-  background-color: rgba(26, 26, 27, 0.534);
+  background-color: rgba(77, 77, 82, 0.582);
   padding: 0;
   display: flex;
   flex-direction: row;
@@ -35,9 +35,10 @@ html {
 }
 .label {
   margin: 0 0.6rem;
+  background-color: #091cca;
 
   border: none;
-  color: white;
+  color: rgb(250, 250, 250);
   padding: 1rem;
   font-size: 0.8rem;
 }

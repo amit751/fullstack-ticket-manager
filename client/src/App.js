@@ -16,14 +16,11 @@ function App() {
   const [startIndex, setStartIndex] = useState(0);
   const [lastIndex, setLastIndex] = useState(6);
   useEffect(() => {
-    console.log("didupdate");
-    console.log(tickets);
     let newCounter = 0;
     tickets.forEach((ticket) => {
       if (ticket.hide) ++newCounter;
     });
 
-    console.log(newCounter);
     setCounter(newCounter);
   });
 
@@ -48,9 +45,9 @@ function App() {
     const ticketToHide = newTickets.find((ticket) => {
       return ticket.title === title;
     });
-    console.log(ticketToHide);
+
     ticketToHide.hide = true;
-    console.log(newTickets);
+
     setTickets(newTickets);
   };
   const restore = () => {
